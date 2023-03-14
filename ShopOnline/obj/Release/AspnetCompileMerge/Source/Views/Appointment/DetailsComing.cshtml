@@ -1,0 +1,215 @@
+﻿@model Model.EF.Appointment
+
+@{
+    ViewBag.Title = "DetailsComing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Thông tin lịch đặt</h2>*@
+
+
+
+@*<div class="container">
+        <div class="row">
+            <div class="row text-center">
+                <div >
+                    <h4>Apointment</h4>
+                    <hr />
+                    <dl style="background-color:antiquewhite; padding:30px;" class="dl-horizontal ">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Client.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Client.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Service.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Service.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BookingDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.BookingDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.BookingTime)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.BookingTime)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Note)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Note)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Phone)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Userid)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Userid)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.status)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.status)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DateCreate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DateCreate)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>*@
+<style>
+    dt {
+        font-size: 25px;
+    }
+
+    dd {
+        font-size: 20px;
+    }
+</style>
+<div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <div class="card card-header ">
+                <h4 style="text-transform:uppercase"><strong>Thông tin chi tiết lịch đặt của khách hàng</strong></h4>
+            </div>
+            <div class="card card-body">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <dl>
+                            <dt>
+                                Tên tài khoản khách hàng
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Client.Name)
+                            </dd>
+
+                            <dt>
+                                Tên dịch vụ
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Service.Name)
+                            </dd>
+
+                            <dt>
+                                Đặt ngày
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BookingDate)
+                            </dd>
+
+                            <dt>
+                                Đặt giờ
+                            </dt>
+
+                            <dd>
+                                @ShopOnline.Common.ShiftToTime.shiftToTime(Model.BookingTime)
+                            </dd>
+
+                            <dt>
+                                Ghi chú
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Note)
+                            </dd>
+
+                            <dt>
+                                Tên trên phiếu đặt
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+
+                            <dt>
+                                Số điện thoại
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Phone)
+                            </dd>
+
+                            <dt>
+                                Địa chỉ Email
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+
+                            <dt>
+                                Ngày tạo phiếu đặt lịch
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DateCreate)
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

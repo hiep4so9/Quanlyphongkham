@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Model.EF.Service>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">
+                Những gì chúng tôi cung cấp
+            </h1>
+        </div>
+        <!-- Horizontal Rule -->
+        <div class="col-12">
+            <p>
+                Pet Health Clinic cung cấp nhiều dịch vụ chuyên nghiệp cho thú cưng của bạn bao gồm phẫu thuật tổng quát, tư vấn dinh dưỡng, theo dõi bệnh nhân, nha khoa, chải lông, tiêm phòng, v.v.! Nếu bạn đã sẵn sàng gặp nhóm chuyên gia thú y của chúng tôi,hãy đặt lịch hẹn ngay bây giờ.
+            </p>
+        </div>
+    </div>
+    <hr>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-8">
+        <div class="container-fluid padding">
+            <div class="row text-center padding">
+                @foreach (var item in Model)
+                {
+                    <div class="col-xs-12 col-sm-6 col-md-4 ">
+                        <a href="/service/service_@item.id"><h3>@item.Name</h3></a>
+                        <p class="align-items-lg-start">
+                            @item.Description
+                        </p>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>

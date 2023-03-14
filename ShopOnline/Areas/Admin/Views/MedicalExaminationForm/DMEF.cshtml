@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Model.EF.CacDichVuDaSuDung>
+
+@{
+    ViewBag.Title = "DMEF";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var toathuoc = ViewBag.toathuoc;
+}
+
+<style>
+    td{
+        font-size: 18px;
+    }
+</style>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-6">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-9">
+                        <h2>Thêm dịch vụ</h2>
+                    </div>
+                    <div class="col-3">
+                        @Html.ActionLink("Thêm mới", "addService", "MedicalExaminationForm", new { id = @ViewBag.Id }, new { @class = "ml-2 btn btn-primary" })
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Tên dịch vụ
+                            </th>
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DetailsService.Name)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Xoá", "DeleteService", new { id = item.Id_DetailsService, deleteid = item.Id_MEF }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-9">
+                        <h2>Thêm thuốc</h2>
+                    </div>
+                    <div class="col-3">
+                        @Html.ActionLink("Thêm mới", "AddMedicine", "MedicalExaminationForm", new { id = @ViewBag.Id }, new { @class = "ml-2 btn btn-primary" })
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Tên thuốc
+                            </th>
+
+                            <th>
+                                Đơn vị
+                            </th>
+                            <th>
+                                Ghi chú
+                            </th>
+                        </tr>
+
+                        @foreach (var item in toathuoc as IList<Model.EF.CTToaThuoc>)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Thuoc.Name
+                                </td>
+                                <td>
+                                    @item.Thuoc.digit
+                                </td>
+                                <td>
+                                    @item.Note
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id_Thuoc, idToaThuoc = item.id_DonThuoc }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+        <hr />
+        @Html.ActionLink("Xem hoá đơn", "Index", "MedicalExaminationForm", new { id = @ViewBag.Id }, new { @class = "ml-2 btn btn-primary" })
+    </div>
+</div>
+

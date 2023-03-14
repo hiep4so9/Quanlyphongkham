@@ -1,0 +1,113 @@
+﻿@model Model.EF.Appointment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+    
+    }
+<style>
+    dt{
+        font-size:25px;
+    }
+    dd{
+        font-size:20px;
+    }
+</style>
+<div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <div class="card card-header ">
+                <h4 style="text-transform:uppercase"><strong>Thông tin chi tiết lịch đặt của khách hàng</strong></h4>
+            </div >
+            <div class="card card-body">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <dl>
+                            <dt>
+                                Tên tài khoản khách hàng
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Client.Name)
+                            </dd>
+
+                            <dt>
+                                Tên dịch vụ
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Service.Name)
+                            </dd>
+
+                            <dt>
+                                Đặt ngày
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BookingDate)
+                            </dd>
+
+                            <dt>
+                                Đặt giờ
+                            </dt>
+
+                            <dd>
+                                @ShopOnline.Common.ShiftToTime.shiftToTime(Model.BookingTime)
+                            </dd>
+
+                            <dt>
+                                Ghi chú
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Note)
+                            </dd>
+
+                            <dt>
+                                Tên trên phiếu đặt
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+
+                            <dt>
+                                Số điện thoại
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Phone)
+                            </dd>
+
+                            <dt>
+                                Địa chỉ Email
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+
+                            <dt>
+                                Ngày tạo phiếu đặt lịch
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DateCreate)
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

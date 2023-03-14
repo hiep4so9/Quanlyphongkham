@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron text-center">
+    <h1 class="display-3">Cảm ơn!</h1>
+    <p class="lead"><strong>Vui lòng kiểm tra Email của bạn!</strong><br /> Thông tin lịch đặt của bạn sẽ gửi tới sớm nhất.</p>
+    <hr>
+    <p>
+        Có vấn đề? <a href="@Url.Action("Index","Contact")">Liên hệ với chúng tôi</a>
+    </p>
+    <p class="lead">
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Index","Home")" role="button">Tiếp tục với trang chủ</a>
+    </p>
+</div>
+

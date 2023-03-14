@@ -1,0 +1,110 @@
+﻿
+@model PagedList.IPagedList<Model.EF.Appointment>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+    Trang chu
+}
+
+<div class="row">
+    <div class=" col-lg-12">
+        <div class="row">
+            <div class="col-3">
+                <p>
+                    @Html.ActionLink("Create New", "Create", "AppointmentConfirm", new { @class = "ml-2 btn btn-primary" })
+                </p>
+            </div>
+            <div class="col-md-9 float-right">
+                @using (Html.BeginForm("HetHan", "AppointmentConfirm", FormMethod.Get))
+                {
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded" name="searchString" value="@ViewBag.SearchString"
+                               placeholder="Tìm bởi tên khách hàng hoặc số điện thoại"
+                               aria-label="Search" aria-describedby="search-addon" />
+                        <button type="submit" class="btn btn-outline-primary">Tìm kiếm</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        <table class="table table-striped table-bordered table-hover">
+            <tr class="align-content-center">
+                <th>
+                    Services Name
+
+                </th>
+                <th>
+                    Booking date
+                </th>
+                <th>
+                    Booking time
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Phone number
+                </th>
+                <th>
+                    Email
+                </th>
+
+                <th>
+                    Action
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service.Name)
+                    </td>
+
+                    <td>
+                        @Html.Label(((DateTime)item.BookingDate).ToString("MM/dd/yyyy"))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookingTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "pl-3 pr-4 mr-1 btn btn-primary", })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "mr-1 btn btn-success", })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id, }, new { @class = "btn btn-secondary", })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class=" dataTables_paginate paging_simple_numbers active">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page, @searchString = @ViewBag.SearchString }))
+        </div>
+        <style>
+            .pagination {
+                float: right;
+                margin-right: 30px;
+            }
+
+            .dataTables_paginate paging_simple_numbers li {
+                display: inline;
+            }
+        </style>
+    </div>
+</div>
+
+

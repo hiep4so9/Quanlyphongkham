@@ -1,0 +1,48 @@
+﻿@model Model.EF.Contact
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Contact", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="page-section">
+    <div class="container">
+        <h1 class="text-center wow fadeInUp">Liên hệ với chúng tôi</h1>
+        <hr />
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+    <form class="contact-form mt-5">
+        
+            <div class="col-sm-12 py-2 wow fadeInLeft">
+                <label for="fullName">Họ Tên</label>
+                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" }, @placeholder = "Họ và tên...." })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12 py-2 wow fadeInRight">
+                <label for="Email">Email</label>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" }, @placeholder = "Địa chỉ email....", @type = "email", })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-sm-12 py-2 wow fadeInRight">
+                <label for="Phone">Số điện thoại</label>
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" }, @placeholder = "Số điện thoại...." })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-12 py-2 wow fadeInUp">
+                @Html.TextAreaFor(model => model.Note, new { @class = "form-control", @name = "message", @rows = 6, @placeholder = "Lời nhắn của bạn..." })
+            </div>
+          
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Gửi lời nhắn" class="btn btn-primary wow zoomIn" />
+            </div>
+    </form>
+    </div>
+</div>
+    }
+

@@ -1,0 +1,68 @@
+﻿@model ShopOnline.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Form with validation using JQuery</title>
+    <!-- Import Bootstrap and JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+
+    </script>
+    <!-- My CSS and JQuery -->
+    <link href="~/Assets/Client/css/login_style.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container-fluid bg">       
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-6 col-xs-12 row-container">
+                @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                {
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    <h1>Login with your information</h1>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Username" })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="label">Password</label>
+                        @Html.TextBoxFor(model => model.Password, new { @type = "password", @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block my-3">Login</button>
+                }
+            <div style="background-color:aquamarine" class="row">
+                @Html.ActionLink("Chưa có tài khoản? Đăng ký ngay", "register", "user", new { @class = "col-12" })
+                @Html.ActionLink("Quên mật khẩu? Ấn vào đây", "ForgotPassword", "user", new { @class = "col-12" })
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

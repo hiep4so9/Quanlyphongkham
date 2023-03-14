@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ADMIN";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+        Trang chu
+    }
+<div class="row">
+    <div class="card-body">
+        <p>Số lượng người truy cập</p>
+        <h4 class="mb5">@ViewBag.SoNguoiTruyCap</h4>
+    </div>
+
+
+    <div class="card-body">
+        <p>Số lượng người Online</p>
+        <h4 class="mb5">@ViewBag.SoNguoiOnline</h4>
+    </div>
+</div>

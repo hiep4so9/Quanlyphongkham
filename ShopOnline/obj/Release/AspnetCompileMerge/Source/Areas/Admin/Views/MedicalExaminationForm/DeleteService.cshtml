@@ -1,0 +1,43 @@
+﻿@model Model.EF.CacDichVuDaSuDung
+
+@{
+    ViewBag.Title = "DeleteService";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <h4>Dịch vụ sử dụng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsService.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailsService.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicalExaminationForm.PetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicalExaminationForm.PetName)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id_MEF" value="@Model.Id_MEF" />
+        <input type="hidden" name="Id_DetailsService" value="@Model.Id_DetailsService" />
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

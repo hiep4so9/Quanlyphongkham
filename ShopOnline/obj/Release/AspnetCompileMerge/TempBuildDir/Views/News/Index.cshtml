@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-banner overlay-dark bg-image">
+    <img src="~/Assets/Client/images/banner.jpg" style="width:98%; height: 450px; margin-left:15px;" />
+    <div class="banner-section">
+        <div class="container text-center wow fadeInUp">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tin tức</li>
+                </ol>
+            </nav>
+            <h1 class="font-weight-normal">Tin Tức</h1>
+        </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+</div> <!-- .page-banner -->
+<hr />
+<div class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-sm-6 py-3">
+                        <div class="card-blog">
+                            <div class="header">
+                                <div class="post-category">
+                                    @*<a href="#">Tiêm ngừa</a>*@
+                                   
+                                </div>
+                                <a href="blog-details" class="post-thumb">
+
+                                    <img src="~/Assets/Client/images/preventative_2.PNG" style="width:262px;height:163px;" />
+                                </a>
+                            </div>
+                            <div class="body">
+                                <h5 class="post-title"><a href="@Url.Action("DV1","News")" style="color: black"><b>Miễn phí chính ngừa dại tại Pet Clinic</b></a></h5>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 py-3">
+                        <div class="card-blog">
+                            <div class="header">
+                                <div class="post-category">
+
+                             
+                                </div>
+                               
+                                    
+
+                                    <img src="~/Assets/Client/images/cach-day-meo-di-ve-sinh-dung-cho-1.jpg" style="width:262px;height:163px;" />
+                                
+                            </div>
+                            <div class="body">
+                                <h5 class="post-title"><a href="@Url.Action("DV2","News")" style="color: black"><b>Cách huấn luyện chó mèo đi vệ sinh đúng chỗ</b></a></h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 py-3">
+                        <div class="card-blog">
+
+                            <div class="body">
+
+                                <div class="site-info">
+                                    <div class="avatar mr-2">
+                                        <div class="avatar-img">
+
+                                            <img src="~/Assets/Client/images/couseling_2.PNG" style="width:262px;height:163px;" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <h5 class="post-title"><a href="@Url.Action("DV3","News")" style="color:black;"><b>Khẩu phần ăn cho mèo như nào là tốt</b></a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 py-3">
+                        <div class="card-blog">
+
+                            <div class="body">
+
+                                <div class="site-info">
+                                    <div class="avatar mr-2">
+                                        <div class="avatar-img">
+
+                                            <img src="~/Assets/Client/images/cat.jpg" style="width:262px;height:163px;" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <h5 class="post-title"><a href="@Url.Action("DV4","News")" style="color:black;"><b>7 điều bạn sẽ muốn nuôi mèo ngay lập tức</b></a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 py-3">
+                        <div class="card-blog">
+
+                            <div class="body">
+
+                                <div class="site-info">
+                                    <div class="avatar mr-2">
+                                        <div class="avatar-img">
+
+                                            <img src="~/Assets/Client/images/batthucan.PNG" style="width:262px;height:163px;" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <h5 class="post-title"><a href="@Url.Action("DV5","News")" style="color:black;"><b>Hermes bán bát ăn của chó giá 1.140 USD</b></a></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- .row -->
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar">
+
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Các dịch vụ</h3>
+                        <ul class="categories">
+                            <li><a href="@Url.Action("Service_2","Service")">Tiêm ngừa </a></li>
+                            <li><a href="@Url.Action("Service_3","Service")">Phẫu Thuật </a></li>
+                            <li><a href="@Url.Action("Service_1","Service")">Khám Tổng Quát </a></li>
+                            <li><a href="@Url.Action("Service_4","Service")">Làm Đẹp </a></li>
+                            <li><a href="@Url.Action("Service_5","Service")">Xét Nghiệm </a></li>
+                            <li><a href="@Url.Action("Service_6","Service")">Lưu chuồng </a></li>
+                            <li><a href="@Url.Action("Service_7","Service")">Siêu âm </a></li>
+                            <li><a href="@Url.Action("Service_8","Service")">Khác </a></li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Nội dung</h3>
+                        <p>Trang tin tức cập nhật các nội dung thú thú vị, liên quan tới thú cưng. Nhằm đáp ứng về mặt kiến thức cho khách hàng và để mở rộng việc hiểu biết của khách hàng đối với thú cưng của họ. Đó là mục tiêu hướng tới của phòng khám Pet Clinic</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container -->
+</div> <!-- .page-section -->

@@ -1,0 +1,45 @@
+﻿@model Model.EF.Service
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+    Chi tiết dịch vụ
+}
+
+<div>
+    <h4>Dịch vụ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên dịch vụ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            
+        </dt>
+            Hình ảnh
+        <dd>
+            <img src="~/Assets/Client/images/@Model.Image" alt="hinh thumnail" height="100" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

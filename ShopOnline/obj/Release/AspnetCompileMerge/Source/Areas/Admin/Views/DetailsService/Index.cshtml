@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Model.EF.DetailsService>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var a = "";
+}
+
+@section Header{
+
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class=" table table-bordered table-hover table-striped">
+    <tr style="background-color:coral">
+        <th>
+            Tên loại dịch vụ
+        </th>
+        <th>
+            Tên dịch vụ
+        </th>
+        <th>
+
+            Miêu tả
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @if (item.Description != null)
+                {
+                    if (item.Description.Length < 100)
+                    {
+                        a = item.Description.ToString();
+                    }
+                    else
+                    {
+                        a = item.Description.Substring(0, 100);
+                    }
+                    @a <label>...</label>
+
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Description)
+                }
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
